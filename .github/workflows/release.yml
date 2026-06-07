@@ -7,11 +7,27 @@ on:
 
 jobs:
   release:
-    uses: ikhalas112/exp-release-tools/.github/workflows/release-macos.reusable.yml@v0.3.0
+    uses: ikhalas112/exp-release-tools/.github/workflows/release-macos.reusable.yml@v0.5.0
     with:
-      config: release.config.json
       tools_repo: ikhalas112/exp-release-tools
-      tools_version: v0.3.0
+      tools_version: v0.5.0
+      game_name: mock-mac-game
+      config_json: |
+        {
+          "distribution": "single_exe",
+          "source": "build",
+          "macos": {
+            "appBundle": "SnakeDesktop.app",
+            "outputFile": "SnakeDesktop-macos.zip",
+            "versionFileDir": "Contents/Resources",
+            "mockFixture": "target/dx/snake-desktop/bundle/macos/macos"
+          },
+          "r2": { "bucket": "mockmacgame" },
+          "launcher": { "min_version": "1.0.0" },
+          "concurrency": { "upload": 8 },
+          "cdnBaseUrl": "",
+          "runner": { "workspaceMode": "fresh" }
+        }
       # Build the real Snake .app, then stage it into build/SnakeDesktop.app
       # so package (ditto) packs the actual game instead of a mock fixture.
       build_command: |
