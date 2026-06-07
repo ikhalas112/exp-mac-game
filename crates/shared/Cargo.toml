@@ -1,0 +1,11 @@
+[package]
+name = "snake-shared"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+chrono.workspace = true
+rand.workspace = true
+serde.workspace = true
+uuid.workspace = true

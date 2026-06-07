@@ -1,0 +1,23 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    uses: ikhalas112/exp-release-tools/.github/workflows/release-macos.reusable.yml@v0.3.0
+    with:
+      config: release.config.json
+      tools_repo: ikhalas112/exp-release-tools
+      tools_version: v0.3.0
+      # Build the real Snake .app, then stage it into build/SnakeDesktop.app
+      # so package (ditto) packs the actual game instead of a mock fixture.
+      build_command: |
+        cargo install dioxus-cli --version 0.7.9 --locked || true
+        dx bundle --desktop --package snake-desktop
+        rm -rf build && mkdir -p build
+        ditto target/dx/snake-desktop/bundle/macos/macos/SnakeDesktop.app build/SnakeDesktop.app
+    secrets:
+      TOOLS_DOWNLOAD_TOKEN: ${{ secrets.TOOLS_DOWNLOAD_TOKEN }}

@@ -1,0 +1,15 @@
+[package]
+name = "snake-desktop"
+edition.workspace = true
+license.workspace = true
+version.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+dioxus.workspace = true
+dotenvy.workspace = true
+reqwest.workspace = true
+serde.workspace = true
+snake-shared.workspace = true
+tokio.workspace = true
+uuid.workspace = true

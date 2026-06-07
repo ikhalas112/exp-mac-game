@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    env_file:
+      - ./crates/server/.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - snake-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  snake-postgres-data:

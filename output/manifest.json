@@ -1,0 +1,27 @@
+{
+  "game": "mock-mac-game",
+  "distribution": "single_exe",
+  "platform": "macos",
+  "version": "0.1.0",
+  "tag": "v0.1.0-dev",
+  "build_number": null,
+  "channel": "dev",
+  "environment": "dev",
+  "released_at": "2026-06-07T08:35:28Z",
+  "is_critical": false,
+  "release_notes": "",
+  "min_launcher_version": "1.0.0",
+  "artifact": {
+    "filename": "SnakeDesktop-macos.zip",
+    "size": 9038843,
+    "size_human": "8.6 MB",
+    "checksum": {
+      "md5": "7acf80cf966ce11a3ee5fc2c9f5cafe2"
+    }
+  },
+  "urls": {
+    "executable": "releases/v0.1.0-dev/macos/SnakeDesktop-macos.zip",
+    "manifest": "releases/v0.1.0-dev/macos/manifest.json",
+    "base": "releases/v0.1.0-dev/macos/"
+  }
+}
